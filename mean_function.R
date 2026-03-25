@@ -14,7 +14,7 @@ run <- function(
     var_beta = 0.2,
     cov_ab = 0.1,
     
-    ## Measurement Parameters -------------
+    ## Measurement Parameters -------------å
     target_loading = 0.4,   # Standardized target loading at t=1
     tau_un  = 1,            # baseline intercept (all items)
     lambda_un = 1,          # baseline loading (all items)
@@ -114,7 +114,7 @@ run <- function(
   
   # 2. Analysis
   if (model == "latent") {
-
+    
     lav_model <- '
 # Measurement part
 f1 =~ 1*i1t1 + l2*i2t1 + l3*i3t1 + l4*i4t1 + l5*i5t1
@@ -137,6 +137,12 @@ i3t1 ~~ e3*i3t1; i3t2 ~~ e3*i3t2; i3t3 ~~ e3*i3t3; i3t4 ~~ e3*i3t4; i3t5 ~~ e3*i
 i4t1 ~~ e4*i4t1; i4t2 ~~ e4*i4t2; i4t3 ~~ e4*i4t3; i4t4 ~~ e4*i4t4; i4t5 ~~ e4*i4t5
 i5t1 ~~ e5*i5t1; i5t2 ~~ e5*i5t2; i5t3 ~~ e5*i5t3; i5t4 ~~ e5*i5t4; i5t5 ~~ e5*i5t5
 
+# Correlated uniqueness
+i1t1 ~~ i1t2; i1t2 ~~ i1t3; i1t3 ~~ i1t4; i1t4 ~~ i1t5
+i2t1 ~~ i2t2; i2t2 ~~ i2t3; i2t3 ~~ i2t4; i2t4 ~~ i2t5
+i3t1 ~~ i3t2; i3t2 ~~ i3t3; i3t3 ~~ i3t4; i3t4 ~~ i3t5
+i4t1 ~~ i4t2; i4t2 ~~ i4t3; i4t3 ~~ i4t4; i4t4 ~~ i4t5
+i5t1 ~~ i5t2; i5t2 ~~ i5t3; i5t3 ~~ i5t4; i5t4 ~~ i5t5
 
 # Second-order LGCM
 I =~ 1*f1 + 1*f2 + 1*f3 + 1*f4 + 1*f5
@@ -175,7 +181,8 @@ s ~  (k2)*1
                "kappa1","kappa1.SE","kappa1.p",
                "kappa2","kappa2.SE","kappa2.p",
                "err.mark",
-               "phi11.cov","phi12.cov","phi22.cov","kappa1.cov","kappa2.cov")
+               "phi11.cov","phi12.cov","phi22.cov","kappa1.cov","kappa2.cov",
+               "chisq","df","pvalue.chi","cfi","tli","rmsea","srmr")
   
   # 4. For Loop
   zval <- 1.96
@@ -185,7 +192,7 @@ s ~  (k2)*1
     as.numeric((est - zval * se) <= true & true <= (est + zval * se))
   }
   
- ## Relative bias
+  ## Relative bias
   rbias_fun <- function(est, true) {
     if (isTRUE(all.equal(true, 0))) return(NA_real_)
     mean((est - true) / true, na.rm = TRUE)
@@ -310,6 +317,18 @@ s ~  (k2)*1
       recall[i, 20L] <- ci_in(recall[i, 10L], recall[i, 11L], mu_alpha)
       recall[i, 21L] <- ci_in(recall[i, 13L], recall[i, 14L], mu_beta)
       
+      fi <- tryCatch(
+        lavaan::fitMeasures(fit, c("chisq","df","pvalue","cfi","tli","rmsea","srmr")),
+        error = function(e) rep(NA_real_, 7)
+      )
+      recall[i, 22L] <- fi[1L]   #chisq
+      recall[i, 23L] <- fi[2L]   #df
+      recall[i, 24L] <- fi[3L]   #chisq p-value
+      recall[i, 25L] <- fi[4L]   #cfi
+      recall[i, 26L] <- fi[5L]   #tli
+      recall[i, 27L] <- fi[6L]   #rmsea
+      recall[i, 28L] <- fi[7L]   #srmr
+      
     } # end nrep
     
     # (C) Summary 
@@ -348,8 +367,29 @@ s ~  (k2)*1
       phi11.cov = mean(recall_ok$phi11.cov, na.rm = TRUE),
       phi22.cov = mean(recall_ok$phi22.cov, na.rm = TRUE),
       phi12.cov = mean(recall_ok$phi12.cov, na.rm = TRUE),
-      k1.cov    = mean(recall_ok$kappa1.cov, na.rm = TRUE),
-      k2.cov    = mean(recall_ok$kappa2.cov, na.rm = TRUE)
+      k1.cov = mean(recall_ok$kappa1.cov, na.rm = TRUE),
+      k2.cov = mean(recall_ok$kappa2.cov, na.rm = TRUE),
+      
+      phi11.power = mean(recall_ok$phi11.p < 0.05, na.rm = TRUE),
+      phi22.power = mean(recall_ok$phi22.p < 0.05, na.rm = TRUE),
+      phi12.power = mean(recall_ok$phi12.p < 0.05, na.rm = TRUE),
+      k1.power = mean(recall_ok$kappa1.p < 0.05, na.rm = TRUE),
+      k2.power = mean(recall_ok$kappa2.p < 0.05, na.rm = TRUE),
+      
+      chisq.m = mean(recall_ok$chisq, na.rm = TRUE),
+      df.m  = mean(recall_ok$df, na.rm = TRUE),
+      pvalue.chi.m = mean(recall_ok$pvalue.chi, na.rm = TRUE),
+      cfi.m = mean(recall_ok$cfi, na.rm = TRUE),
+      tli.m = mean(recall_ok$tli, na.rm = TRUE),
+      rmsea.m = mean(recall_ok$rmsea, na.rm = TRUE),
+      srmr.m  = mean(recall_ok$srmr, na.rm = TRUE),
+      
+      chisq.sd = sd(recall_ok$chisq, na.rm = TRUE),
+      cfi.sd  = sd(recall_ok$cfi, na.rm = TRUE),
+      tli.sd  = sd(recall_ok$tli, na.rm = TRUE),
+      rmsea.sd  = sd(recall_ok$rmsea, na.rm = TRUE),
+      srmr.sd = sd(recall_ok$srmr, na.rm = TRUE),
+      chisq.reject = mean(recall_ok$pvalue.chi < 0.05, na.rm = TRUE)
     )
     
     results_list[[n_idx]] <- list(

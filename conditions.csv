@@ -1,0 +1,13 @@
+"rho_val","N_size","model","N","residual_cov","var_alpha","var_beta","cov_ab","mu_alpha","mu_beta","psi","mni_location","mni_size","nrep","seed","job_id"
+0,200,"composite","small","no rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,1
+0.1,200,"composite","small","small rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,2
+0,500,"composite","medium","no rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,3
+0.1,500,"composite","medium","small rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,4
+0,800,"composite","large","no rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,5
+0.1,800,"composite","large","small rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,6
+0,200,"latent","small","no rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,7
+0.1,200,"latent","small","small rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,8
+0,500,"latent","medium","no rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,9
+0.1,500,"latent","medium","small rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,10
+0,800,"latent","large","no rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,11
+0.1,800,"latent","large","small rho",1,0.2,0.1,0,0.5,0.2,"none","none",2000,218,12
