@@ -1,0 +1,2 @@
+[job 264] model=sum         N=800 T=5 J=3 rho=0.15 loading=vgood fit_cu=TRUE  [CU modeled]
+[job 264] saved: study1_results/job264_sum_J3_T5_N800_vgood_sd0p05_rho0p15_cuT.RData

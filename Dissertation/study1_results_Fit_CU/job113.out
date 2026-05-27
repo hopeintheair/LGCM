@@ -1,0 +1,2 @@
+[job 113] model=EC_latent   N=500 T=5 J=3 rho=0.00 loading=vgood fit_cu=FALSE [Correct (no CU)]
+[job 113] saved: study1_results/job113_EC_latent_J3_T5_N500_vgood_sd0p00_rho0p00_cuF.RData

@@ -1,0 +1,2 @@
+[job 174] model=sum         N=800 rho=0.15 loading=vgood
+[job 174] saved: study1_results/job174_sum_J5_T5_N800_vgood_sd0p00_rho0p15.RData

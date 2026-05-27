@@ -1,0 +1,2 @@
+[job 022] model=EC_latent   N=200 rho=0.15 loading=poor
+[job 022] saved: study1_results/job022_EC_latent_J3_T3_N200_poor_sd0p05_rho0p15.RData

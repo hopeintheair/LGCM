@@ -1,0 +1,142 @@
+
+Loading this modulefile 'R/4.5.1' is just informational
+
+
+           R version 4.5.1 (2025-06-13) -- 'Great Square Root'
+           Copyright (C) 2025 The R Foundation for Statistical Computing
+           Platform: x86_64-redhat-linux-gnu
+
+           is in all user's path by default
+           and availble for use.
+
+
+This is lavaan 0.6-19
+lavaan is FREE software! Please report any bugs.
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+Warning messages:
+1: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+2: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+3: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+There were 50 or more warnings (use warnings() to see the first 50)
+Warning message:
+lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 12 warnings (use warnings() to see them)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 17 warnings (use warnings() to see them)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 44 warnings (use warnings() to see them)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 27 warnings (use warnings() to see them)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 43 warnings (use warnings() to see them)
+There were 19 warnings (use warnings() to see them)
+Warning messages:
+1: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+2: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+3: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+4: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+5: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 23 warnings (use warnings() to see them)
+Warning messages:
+1: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+2: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+3: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 30 warnings (use warnings() to see them)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 17 warnings (use warnings() to see them)
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 24 warnings (use warnings() to see them)
+Warning messages:
+1: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+2: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+3: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+4: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+5: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+6: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+Warning message:
+lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+There were 50 or more warnings (use warnings() to see the first 50)
+There were 23 warnings (use warnings() to see them)
+Warning messages:
+1: lavaan->lav_object_post_check():  
+   the covariance matrix of the residuals of the observed variables (theta) 
+   is not positive definite ; use lavInspect(fit, "theta") to investigate. 
+2: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+3: lavaan->lav_object_post_check():  
+   the covariance matrix of the residuals of the observed variables (theta) 
+   is not positive definite ; use lavInspect(fit, "theta") to investigate. 
+4: lavaan->lav_object_post_check():  
+   covariance matrix of latent variables is not positive definite ; use 
+   lavInspect(fit, "cov.lv") to investigate. 
+5: lavaan->lav_object_post_check():  
+   the covariance matrix of the residuals of the observed variables (theta) 
+   is not positive definite ; use lavInspect(fit, "theta") to investigate. 
+6: lavaan->lav_object_post_check():  
+   the covariance matrix of the residuals of the observed variables (theta) 
+   is not positive definite ; use lavInspect(fit, "theta") to investigate. 
+7: lavaan->lav_object_post_check():  
+   the covariance matrix of the residuals of the observed variables (theta) 
+   is not positive definite ; use lavInspect(fit, "theta") to investigate. 
+8: lavaan->lav_object_post_check():  
+   the covariance matrix of the residuals of the observed variables (theta) 
+   is not positive definite ; use lavInspect(fit, "theta") to investigate. 
+9: lavaan->lav_object_post_check():  
+   the covariance matrix of the residuals of the observed variables (theta) 
+   is not positive definite ; use lavInspect(fit, "theta") to investigate. 

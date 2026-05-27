@@ -1,0 +1,2 @@
+[job 226] model=EC_latent   N=800 T=5 J=5 rho=0.00 loading=vgood fit_cu=TRUE  [CU overfit]
+[job 226] saved: study1_results/job226_EC_latent_J5_T5_N800_vgood_sd0p00_rho0p00_cuT.RData

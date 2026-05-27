@@ -1,0 +1,2 @@
+[job 051] model=sum         N=200 T=3 J=3 rho=0.00 loading=vgood fit_cu=FALSE [Correct (no CU)]
+[job 051] saved: study1_results/job051_sum_J3_T3_N200_vgood_sd0p05_rho0p00_cuF.RData

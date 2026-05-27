@@ -1,0 +1,2 @@
+[job 090] model=EC_latent   N=800 rho=0.15 loading=vgood
+[job 090] saved: study1_results/job090_EC_latent_J5_T5_N800_vgood_sd0p05_rho0p15.RData

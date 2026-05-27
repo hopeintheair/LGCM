@@ -1,0 +1,5 @@
+"Data CU","Model CU","Design cells","Identified?","Specification"
+"No (rho=0)","-","rho=0, TT=3","yes","correct"
+"No (rho=0)","-","rho=0, TT=5","yes","correct"
+"Yes (rho=.15)","Omitted","rho=.15, TT=3","CU not identified in sum 1-LGCM (df = -1)","MISSPECIFIED"
+"Yes (rho=.15)","Modeled","rho=.15, TT=5","yes (df = 6)","correct"

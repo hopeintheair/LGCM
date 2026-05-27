@@ -1,0 +1,2 @@
+[job 095] model=sum         N=200 T=5 J=5 rho=0.15 loading=poor fit_cu=FALSE [CU ignored]
+[job 095] saved: study1_results/job095_sum_J5_T5_N200_poor_sd0p05_rho0p15_cuF.RData

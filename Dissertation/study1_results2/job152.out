@@ -1,0 +1,2 @@
+[job 152] model=sum         N=500 rho=0.00 loading=poor
+[job 152] saved: study1_results/job152_sum_J3_T5_N500_poor_sd0p00_rho0p00.RData

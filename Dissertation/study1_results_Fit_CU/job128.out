@@ -1,0 +1,2 @@
+[job 128] model=EC_latent   N=500 T=5 J=3 rho=0.15 loading=poor fit_cu=TRUE  [CU modeled]
+[job 128] saved: study1_results/job128_EC_latent_J3_T5_N500_poor_sd0p05_rho0p15_cuT.RData

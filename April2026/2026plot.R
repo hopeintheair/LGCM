@@ -17,7 +17,7 @@ conflicts_prefer(dplyr::select)
 conflicts_prefer(dplyr::filter)
 
 result_dir <- "." 
-my_files <- list.files(path = "results", pattern = "\\.RData$", full.names = TRUE)
+my_files <- list.files(path = "results_new", pattern = "\\.RData$", full.names = TRUE)
 
 all_data_list <- list()
 
@@ -42,7 +42,9 @@ for (file in my_files) {
 }
 
 final_df <- bind_rows(all_data_list)
-
+final_df <- final_df %>%
+  mutate(admissible.m = 1-err.perc) %>%
+  filter(mni_location != "residual")
 
 #-------------------------------
 #  visualize results
@@ -493,49 +495,74 @@ plot_fit <- function(df,
 
 
 plot_sim(final_df, metric = "rmse", model =c("latent", "sum_scaled"),
-         facet_cols = c("residual_cov", "mni_location", "mni_size"), 
-         palette = "viridis", params = c("phi11", "phi22", "phi12", "cor12", "k1","k2"))
+         facet_cols = c("rho", "mni_location", "mni_size"), 
+         palette = "titan", params = c("phi11", "phi22", "phi12", "cor12", "k2"))
 
 plot_sim(final_df, metric = "rbias", model =c("latent", "sum_scaled"),
-         facet_cols = c("residual_cov", "mni_location", "mni_size"), 
-         palette = "viridis", params = c("phi11", "phi22", "phi12", "cor12", "k2"))
+         facet_cols = c("rho", "mni_location", "mni_size"), 
+         palette = "titan", params = c("phi11", "phi22", "phi12", "cor12", "k2"),
+         filter_rho = "no rho")
 
-plot_sim(final_df, metric = "cov", model =c("latent", "sum_scaled","sum"),
-         hline=c(.95),
-         facet_cols = c("residual_cov", "mni_location", "mni_size"), 
-         palette = "viridis", params = c("phi11", "phi22", "phi12", "cor12","k1", "k2"))
+plot_sim(final_df, metric = "rbias", model =c("latent", "sum_scaled"),
+         facet_cols = c("rho", "mni_location", "mni_size"), 
+         palette = "titan", params = c("phi11", "phi22", "phi12", "cor12", "k2"))
+
+
+plot_sim(final_df, metric = c("cov"), model =c("latent", "sum_scaled"),
+         hline=c(.9),
+         facet_cols = c("rho", "mni_location", "mni_size"), 
+         palette = "titan", params = c("phi11", "phi22", "phi12", "cor12", "k1","k2"),
+         filter_rho = "no rho")
 
 plot_sim(final_df, metric = "power", model =c("latent", "sum_scaled"), hline=c(.8),
-         facet_cols = c("residual_cov", "mni_location", "mni_size"), 
-         palette = "viridis", params = c("phi11", "phi22", "phi12", "cor12","k1", "k2"))
+         facet_cols = c("rho", "mni_location", "mni_size"), 
+         palette = "titan", params = c("phi11", "phi22", "phi12", "cor12", "k1","k2"))
 
 
 
 # k2 에 대해 bias 와 sd 를 따로 보기
 plot_sim(final_df, metric = "bias", params = "k2",model =c("latent", "sum_scaled"),
-         facet_cols = c("residual_cov","mni_location","mni_size"), hline=c(-0.02,0.02))
+         facet_cols = c("rho","mni_location","mni_size"), hline=c(-0.02,0.02))
 # 분산 역산 예시
 final_df <- final_df %>%
   mutate(k2.var = k2.rmse^2 - k2.bias^2)
 plot_sim(final_df, metric = "var", params = "k2",model =c("latent", "sum_scaled"),
-         facet_cols = c("residual_cov","mni_location","mni_size"))
+         facet_cols = c("rho","mni_location","mni_size"))
 
 
 
 plot_sim(final_df, metric = "m",model =c("latent", "sum_scaled", "sum"),
-         params = c("phi11", "phi22", "phi12", "cor12", "k2"),
-         facet_cols = c("residual_cov","mni_location","mni_size"))
+         params = c("phi11", "phi22", "phi12", "cor12","k1", "k2"), palette = "titan", 
+         facet_cols = c("rho","mni_location","mni_size"))
 
 
 
-plot_sim(final_df, metric = "m",model =c("latent", "sum"),
-         params = c("rho_IS", "d_slope"),
-         facet_cols = c("residual_cov","mni_location","mni_size"))
+plot_sim(final_df, metric = "m", model =c("latent", "sum"),
+         facet_cols = c("rho", "mni_location", "mni_size"), 
+         palette = "titan", params = c("cor12"))
+
+plot_sim(final_df, metric = "rbias", model =c("latent", "sum"),
+         facet_cols = c("rho", "mni_location", "mni_size"), 
+         palette = "titan", params = c("cor12"))
+
+plot_sim(final_df, metric = "m",model =c("latent", "sum"),palette = "titan",
+         params = c("rho_IS"),
+         facet_cols = c("rho","mni_location","mni_size"))
+
+plot_sim(final_df, metric = "m",model =c("latent", "sum_scaled","sum"),palette = "titan",
+         params = c("rho_IS", "d_slope", "std_tot_eff", "slope_rel"),
+         facet_cols = c("rho","mni_location","mni_size"))
 
 
 
-plot_sim(final_df, metric = "m",model =c("latent", "sum"),
-         params = c("chisq", "pvalue.chi"),
-         facet_cols = c("residual_cov","mni_location","mni_size"))
-plot_fit(final_df, stat = "reject",model =c("latent", "sum"),
-         facet_cols = c("residual_cov","mni_location","mni_size"))
+plot_sim(final_df, metric = "m",model =c("latent","sum"),palette = "titan",
+         params = c("cfi", "tli", "rmsea","srmr"),
+         facet_cols = c("rho","mni_location","mni_size"))
+
+plot_sim(final_df, metric = "m",model =c("latent","sum_scaled", "sum"),palette = "titan",
+         params = c("err.perc"),
+         facet_cols = c("rho","mni_location","mni_size"))
+
+
+plot_fit(final_df, stat = "reject", model =c("latent", "sum_scaled", "sum"),palette = "titan",
+         facet_cols = c("rho","mni_location","mni_size"))

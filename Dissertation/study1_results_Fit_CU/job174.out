@@ -1,0 +1,2 @@
+[job 174] model=sum         N=500 T=5 J=3 rho=0.00 loading=poor fit_cu=TRUE  [CU overfit]
+[job 174] saved: study1_results/job174_sum_J3_T5_N500_poor_sd0p05_rho0p00_cuT.RData
