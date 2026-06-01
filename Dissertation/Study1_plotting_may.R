@@ -293,14 +293,14 @@ plot_metric(results, "admissible",
 plot_metric(results, "rbias",
             params  = c("phi11", "phi22", "phi12","k1", "k2"),
             facets  = c("spec", "J"),
-            filters = list(TT = 5, sd.lambda = 0),
+            filters = list(TT = 5, J=3,sd.lambda = 0),
             y_range = "shared",
             title   = "Relative bias by specification (T = 5)")
 
 plot_metric(results, "rmse",
             params  = c("phi11", "phi22", "phi12", "k1", "k2"),
             facets  = c("spec", "J"),
-            filters = list(TT = 5, sd.lambda = 0),
+            filters = list(TT = 5,J=3, sd.lambda = 0),
             y_range = "shared",
             title   = "Relative RMSE by specification (T = 5)")
 
